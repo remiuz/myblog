@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Myblog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <% if user_signed_in? %>
+  Signed in as <%= current_user.name %>. Not you?
+  <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+  <% else %>
+  <%= link_to "Sign up", :controller => :users, :action => :new  %> or
+  <%= link_to "Sign in", :controller => :users, :action => :new %>
+  <br/>
+  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+  <% end %>
+
+  <%= yield %>
+
+</body>
+</html>

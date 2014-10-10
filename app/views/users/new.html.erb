@@ -1,0 +1,20 @@
+
+<h2>Sign up</h2>
+
+<%= form_for(@user, :url => {:action => :create}) do |f| %>
+  <% #devise_error_messages! %>
+
+  <div><%= f.label "Nom" %><br />
+  <%= f.text_field :name, autofocus: true %></div>
+
+  <div><%= f.label "Adresse email" %><br />
+  <%= f.email_field :email%></div>
+
+  <div><%= f.label "Mot de passe" %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div><%= f.label "Confirmation mot de passe" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+  <div><%= f.submit "S'inscrire" %></div>
+<% end %>
