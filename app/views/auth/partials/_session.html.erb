@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+Connecté en tant que <%= current_user.email %>. Ce n'est pas vous?
+<%= link_to "Se déconnecter", destroy_user_session_path,:method => :delete %>
+<% else %>
+<%= link_to "Se connecter", :controller => :auth, :action => :login %> ou
+<%= link_to "S'enregistrer", :controller => :users, :action => :new  %>
+<br/>
+<%= link_to "Se connecter avec Facebook", user_omniauth_authorize_path(:facebook) %>
+<% end %>

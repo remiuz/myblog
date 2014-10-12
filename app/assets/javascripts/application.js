@@ -14,4 +14,14 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require unobtrusive_flash
+//= require unobtrusive_flash_ui
+//= require ckeditor/init
 //= require_tree .
+
+
+
+function initParams(){
+  console.log("initParams");
+  UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
+}

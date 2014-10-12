@@ -1,0 +1,33 @@
+<% @posts.each do |post| %>
+  <div class="post-container">
+    <h3 class="post-title">
+      <%= post.title %>
+    </h3>
+    <div>
+      <div class="post-thumb">
+        <% if post.image.exists? %>
+          <%= image_tag post.image.url, width: "400" %>
+        <% end %>
+      </div>
+      <div class="post-content">
+        <%= raw post.content %>
+        <br/><br/>
+        <% if post.tags.any? %>
+          Tags:
+          <% post.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+      <%= link_to 'Lire les commentaires', :controller => :comments, :action => :index, :post_id => post.id %>
+    <% if current_user %>
+      <br/>
+      <%= link_to 'Ajouter un commentaire', :controller => :comments, :action => :new, :post_id => post.id %>
+    <% end %>
+  </div>
+  <% if current_user && current_user.is_admin %>
+    <%= link_to 'Editer', edit_post_path(post) %>
+    <%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Voulez-vous vraiment supprimer?' } %>
+  <% end %>
+<% end %>

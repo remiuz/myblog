@@ -1,11 +1,8 @@
 
-<h2>Sign up</h2>
+<h2>S'enregistrer</h2>
 
 <%= form_for(@user, :url => {:action => :create}) do |f| %>
-  <% #devise_error_messages! %>
-
-  <div><%= f.label "Nom" %><br />
-  <%= f.text_field :name, autofocus: true %></div>
+  <% devise_error_messages! %>
 
   <div><%= f.label "Adresse email" %><br />
   <%= f.email_field :email%></div>
@@ -15,6 +12,6 @@
 
   <div><%= f.label "Confirmation mot de passe" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
+  <br/>
   <div><%= f.submit "S'inscrire" %></div>
 <% end %>

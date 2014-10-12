@@ -1,17 +1,25 @@
+
 <%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+  <% devise_error_messages! %>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div><%= f.label "Titre : " %><br />
+    <%= f.text_field :title%>
   </div>
+
+  <div><%= f.label "Texte : " %><br />
+    <%= f.cktext_area :content, :value => @post.content, :id => 'post_content' %>
+  </div>
+
+  <div>
+    <%= f.label 'Tags (séparés par des ",") : '  %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+
+
+  <div class="centered-margin"><%= f.label "Image : " %><br />
+    <%= f.file_field :image %>
+  </div>
+  <br/>
+
+  <div><%= f.submit "Enregistrer" %></div>
 <% end %>

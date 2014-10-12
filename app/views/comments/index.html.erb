@@ -1,23 +1,15 @@
-<h1>Listing comments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<h1>Liste des commentaires</h1>
+<br/><br/>
+<% @comments.each do |comment| %>
+  <%= comment.user.email %> a écrit :
+  <br><br>
+  "<%= comment.content %>"
+  <% if !comment.is_validated? && current_user.is_admin? %>
+    <br/>
+    <%= form_for(comment, :url => {:action => :validate_comment, :id => comment.id ,:controller => :comments}) do |f| %>
+      <%= f.submit "Valider le commentaire" %>
     <% end %>
-  </tbody>
-</table>
-
+  <% end %>
+  <br/><br/><br/>
+<% end %>
 <br>
-
-<%= link_to 'New Comment', new_comment_path %>

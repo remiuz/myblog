@@ -1,0 +1,19 @@
+#unobtrusive-flash-messages {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+#unobtrusive-flash-messages .unobtrusive-flash-message-wrapper {
+    background: none repeat scroll 0 0 #dcecaa;
+    opacity: 1;
+    padding: 10px 0;
+}
+#unobtrusive-flash-messages .unobtrusive-flash-message-wrapper.unobtrusive-flash-error {
+    background: none repeat scroll 0 0 #ffe2e2;
+}
+#unobtrusive-flash-messages .unobtrusive-flash-message-wrapper .unobtrusive-flash-message {
+    margin: 0 auto;
+    width: 960px;
+}

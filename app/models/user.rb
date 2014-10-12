@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts
+  
   devise :omniauthable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

@@ -1,0 +1,11 @@
+<h1>Liste des articles</h1>
+
+
+    <% if current_user && current_user.is_admin %>
+      <%= link_to 'Poster un article', new_post_path %>
+      <br/><br/>
+    <% end %>
+<div class="centered">
+    Résultats pour "<%= @searched_text %>"
+    <%= render "display_posts" %>
+<br>

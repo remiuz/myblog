@@ -6,6 +6,16 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'oauth2'
 
+gem 'unobtrusive_flash', '>=3'
+gem 'ckeditor'
+
+gem 'acts-as-taggable-on'
+
+gem 'pg_search'
+
+gem 'paperclip'
+gem 'aws-sdk'
+
 
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
