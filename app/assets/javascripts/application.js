@@ -17,6 +17,7 @@
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui
 //= require tinymce
+//= require tinymce-jquery
 //= require_tree .
 
 
