@@ -34,8 +34,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     respond_to do |format|
+      flash[:notice] = 'Article ajouté.'
       if @post.save
-        format.html { redirect_to :action => :index, notice: 'Article ajouté.' }
+        format.html { redirect_to :action => :index }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -49,6 +50,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        flash[:notice] = 'Article mis à jour.'
         format.html { redirect_to :action => :index, notice: 'Article mis à jour.' }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -62,6 +64,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
+    flash[:notice] = 'Article supprimé.'
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Article supprimé.' }
       format.json { head :no_content }

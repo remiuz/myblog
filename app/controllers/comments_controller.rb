@@ -33,7 +33,8 @@ class CommentsController < ApplicationController
       @comment = Comment.new
       @comment.post_id = params[:post_id]
     else
-      redirect_to :controller => :posts, :action => :index, notice: 'Vous devez être connecté pour poster un commentaire.'
+      flash[:notice] = "Vous devez être connecté pour poster un commentaire."
+      redirect_to :controller => :posts, :action => :index
     end
   end
 
@@ -49,7 +50,8 @@ class CommentsController < ApplicationController
     @comment.is_validated = false
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: "Votre commentaire a été posté. Il sera visible lorsque qu'il aura été validé." }
+        flash[:notice] = "Votre commentaire a été posté. Il sera visible lorsque qu'il aura été validé."
+        format.html { redirect_to @comment }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
