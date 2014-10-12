@@ -26,3 +26,13 @@ function initParams(){
   console.log("initParams");
   UnobtrusiveFlash.flashOptions['timeout'] = 2000; // milliseconds
 }
+
+
+function initTinymce(){
+  tinyMCE.init({
+    selector: '#post_content',
+    menubar:false,
+    statusbar:false,
+    width:"100%"
+  });
+}
