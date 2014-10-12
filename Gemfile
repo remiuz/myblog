@@ -7,7 +7,7 @@ gem 'omniauth-facebook'
 gem 'oauth2'
 
 gem 'unobtrusive_flash', '>=3'
-gem 'ckeditor'
+gem 'tinymce-rails'
 
 gem 'acts-as-taggable-on'
 
@@ -25,6 +25,8 @@ gem "twitter-bootstrap-rails"
 gem 'pg'
 
 gem 'rails_12factor', group: :production
+
+gem 'non-stupid-digest-assets', '~> 1.0.4'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui
-//= require ckeditor/init
+//= require tinymce-jquery
 //= require_tree .
 
 

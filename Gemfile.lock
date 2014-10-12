@@ -38,9 +38,6 @@ GEM
     bcrypt (3.1.7)
     bcrypt (3.1.7-x86-mingw32)
     builder (3.2.2)
-    ckeditor (4.1.0)
-      mime-types
-      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -93,6 +90,7 @@ GEM
       mini_portile (= 0.6.0)
     nokogiri (1.6.3.1-x86-mingw32)
       mini_portile (= 0.6.0)
+    non-stupid-digest-assets (1.0.4)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -174,6 +172,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    tinymce-rails (4.1.5)
+      railties (>= 3.1.1)
     turbolinks (2.4.0)
       coffee-rails
     twitter-bootstrap-rails (3.2.0)
@@ -200,12 +200,12 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   aws-sdk
-  ckeditor
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
+  non-stupid-digest-assets (~> 1.0.4)
   oauth2
   omniauth
   omniauth-facebook
@@ -217,6 +217,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   therubyracer
+  tinymce-rails
   turbolinks
   twitter-bootstrap-rails
   tzinfo-data

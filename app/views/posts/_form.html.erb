@@ -7,7 +7,7 @@
   </div>
 
   <div><%= f.label "Texte : " %><br />
-    <%= f.cktext_area :content, :value => @post.content, :id => 'post_content' %>
+    <%= f.text_area :content, :class => "tinymce", :value => @post.content, :id => 'post_content' %>
   </div>
 
   <div>
@@ -23,3 +23,11 @@
 
   <div><%= f.submit "Enregistrer" %></div>
 <% end %>
+
+<script>
+  tinyMCE.init({
+    selector: '#post_content',
+    menubar:false,
+    statusbar:false
+  });
+</script>
