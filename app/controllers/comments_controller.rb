@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         flash[:notice] = "Votre commentaire a été posté. Il sera visible lorsque qu'il aura été validé."
-        format.html { redirect_to @comment }
+        format.html { redirect_to :controller => comments, :action => :index }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
