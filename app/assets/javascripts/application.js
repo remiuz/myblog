@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require unobtrusive_flash
 //= require unobtrusive_flash_ui
-//= require tinymce-jquery
+//= require tinymce
 //= require_tree .
 
 
