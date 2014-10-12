@@ -7,7 +7,7 @@ gem 'omniauth-facebook'
 gem 'oauth2'
 
 gem 'unobtrusive_flash', '>=3'
-gem 'tinymce-rails'
+gem 'tinymce-rails', '~> 3.5.9'
 
 gem 'acts-as-taggable-on'
 
