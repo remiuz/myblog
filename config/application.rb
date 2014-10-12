@@ -21,6 +21,7 @@ module Myblog
     config.i18n.default_locale = :fr
 
     config.serve_static_assets = true
+    config.assets.precompile += Ckeditor.assets
 
   end
 end
