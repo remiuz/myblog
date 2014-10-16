@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   def index
     params.permit(:post_id)
     if params[:post_id]
-      if current_user.is_admin?
+      if current_user && current_user.is_admin?
         @comments = Comment.where(:post_id => params[:post_id]).includes(:user)
       else
         @comments = Comment.where(:post_id => params[:post_id], :is_validated => true).includes(:user)

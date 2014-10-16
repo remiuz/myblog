@@ -1,15 +1,19 @@
 <h1>Liste des commentaires</h1>
 <br/><br/>
-<% @comments.each do |comment| %>
-  <%= comment.user.email %> a écrit :
-  <br><br>
-  "<%= comment.content %>"
-  <% if !comment.is_validated? && current_user.is_admin? %>
-    <br/>
-    <%= form_for(comment, :url => {:action => :validate_comment, :id => comment.id ,:controller => :comments}) do |f| %>
-      <%= f.submit "Valider le commentaire" %>
+<% if @comments.length == 0 %>
+  Pas de commentaire.
+<% else %>
+  <% @comments.each do |comment| %>
+    <%= comment.user.email %> a écrit :
+    <br><br>
+    "<%= comment.content %>"
+    <% if !comment.is_validated? && current_user && current_user.is_admin? %>
+      <br/>
+      <%= form_for(comment, :url => {:action => :validate_comment, :id => comment.id ,:controller => :comments}) do |f| %>
+        <%= f.submit "Valider le commentaire" %>
+      <% end %>
     <% end %>
+    <br/><br/><br/>
   <% end %>
-  <br/><br/><br/>
-<% end %>
+<%end%>
 <br>
